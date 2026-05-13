@@ -12,5 +12,5 @@ CREATE TABLE questions (
 );
 
 INSERT INTO questions (question, option1, option2, option3, option4, correct) VALUES
-('Capital of India?', 'Delhi', 'Mumbai', 'Chennai', 'Kolkata', 1),
+('Capital of India (Updated)?', 'Delhi', 'Mumbai', 'Chennai', 'Kolkata', 1),
 ('2+2=?', '3', '4', '5', '6', 2);
