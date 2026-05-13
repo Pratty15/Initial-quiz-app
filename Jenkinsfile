@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/Pratty15/Initial-quiz-app'
-            }
-        }
-
         stage('Build & Deploy (Docker)') {
             steps {
                 sh 'docker-compose down || true'
@@ -22,7 +16,6 @@ pipeline {
 
         stage('Smoke Test') {
             steps {
-                // wait a few seconds for containers
                 sh 'sleep 5'
                 sh 'curl -f $APP_URL || exit 1'
             }
