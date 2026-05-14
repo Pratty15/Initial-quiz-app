@@ -17,7 +17,7 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 sh 'sleep 5'
-                sh 'curl -f $APP_URL || exit 1'
+                sh 'curl -f http://localhost:8080/index.html || exit 1'
             }
         }
 
