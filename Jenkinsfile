@@ -8,11 +8,16 @@ pipeline {
     stages {
 
         stage('Build & Deploy (Docker)') {
-            steps {
-                sh 'docker-compose down || true'
-                sh 'docker-compose up --build -d'
-            }
-        }
+    steps {
+        sh '''
+        docker-compose down --remove-orphans || true
+        docker rm -f quiz-web-1 || true
+        docker rm -f quiz-db-1 || true
+        docker system prune -f || true
+        docker-compose up --build -d
+        '''
+    }
+}
 
         stage('Smoke Test') {
             steps {
