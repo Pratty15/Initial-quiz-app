@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-  - "0:80"
+      - "0:80"
     depends_on:
       - db
 
