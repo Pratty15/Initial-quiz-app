@@ -7,11 +7,27 @@ fetch("/api/getQuestions.php")
     let html = "";
 
     data.forEach((q, i) => {
-      html += `<p>${q.question}</p>
-      <input type="radio" name="q${i}" value="1">${q.option1}<br>
-      <input type="radio" name="q${i}" value="2">${q.option2}<br>
-      <input type="radio" name="q${i}" value="3">${q.option3}<br>
-      <input type="radio" name="q${i}" value="4">${q.option4}<br>`;
+      html += `
+      <div class="question">
+        <p>${i+1}. ${q.question}</p>
+
+        <label class="option">
+          <input type="radio" name="q${i}" value="1"> ${q.option1}
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q${i}" value="2"> ${q.option2}
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q${i}" value="3"> ${q.option3}
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q${i}" value="4"> ${q.option4}
+        </label>
+      </div>
+      `;
     });
 
     document.getElementById("quiz").innerHTML = html;
